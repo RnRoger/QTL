@@ -3,7 +3,7 @@
 # 
 # Author: Rogier Stegeman
 # Created: 25/04/2018
-# Last modified: 09/06/2018
+# Last modified: 12/06/2018
 # Known bugs:
 #   None
 
@@ -48,10 +48,10 @@ def openQuaData(file_path):
                   "You also might've switched up the two files.".format(IE))
             quit()
     except FileNotFoundError as FNFE:
-        print("ERROR: {} | While searching for Qua data\nPlease select the files and open them. Don't close the file opener screen. "
+        print("ERROR: {} | While searching for Qua data\nPlease select the files and open them. "
+              "Don't close the file opener screen. "
               "If all else fails please check the validity of your file.".format(FNFE))
         quit()
-
 
 
 # Opens and parses the Loc Data
@@ -118,7 +118,7 @@ def calculateAnova(listA, listB):
 # Write the results to a csv file for MS Excel compatibility.
 def writeFile(results):
     try:
-        file = open("AnovaData.csv","w")
+        file = open("AnovaData.csv", "w")
         file.write("Marker,F,p")
         for list in results:
             file.write("\n{},{},{}".format(list[0], list[1], list[2]))
